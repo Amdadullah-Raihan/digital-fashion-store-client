@@ -28,9 +28,9 @@ const SingleProduct = () => {
                     {
                         images?.map(image =>
 
-                            <div className='border flex justify-center items-center cursor-pointer hover:border-[#1a2d40]'>
-                                <button onClick={()=>setThumbnail(image)}> <img className='w-16 py-6' src={image} alt="" /></button>
-                            </div>
+                            <button onClick={() => setThumbnail(image)} className='flex justify-center items-center cursor-pointer py-4 px-2 border hover:border-[#1a2d40]'>
+                              <img className='w-full ' src={image} alt="" />
+                            </button>
 
                         )
                     }
