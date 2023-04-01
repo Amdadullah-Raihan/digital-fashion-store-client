@@ -6,6 +6,16 @@ const SideBar = () => {
 
     return (
         <div className=' lg:w-[25%] mx-auto text-start leading-8'>
+            {/* search */}
+            <section className='mb-4'>
+                <div className="form-control">
+                    <div className="input-group">
+                        <input type="text" className='border border-[#1a2d40] w-[150px]' />
+                        <button className="btn bg-[#1a2d40]">Search</button>
+                    </div>
+                </div>
+                
+            </section>
             {/* Price Range starts */}
             <section className='mb-4'>
                 <div>
