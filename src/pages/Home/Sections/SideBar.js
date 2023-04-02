@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import solidColor from '../../../assests/icons/clothes.png'
+import PrintedColor from '../../../assests/icons/tie-dye.png'
+import StrippedColor from '../../../assests/icons/shirt.png'
 
 const SideBar = () => {
-    
+
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -14,7 +17,7 @@ const SideBar = () => {
                         <button className="btn bg-[#1a2d40]">Search</button>
                     </div>
                 </div>
-                
+
             </section>
             {/* Price Range starts */}
             <section className='mb-4'>
@@ -33,8 +36,8 @@ const SideBar = () => {
                     <h4 className="text-md font-medium">All</h4>
 
                     <div className=''>
-                        <button className="" onClick={()=> setIsOpen(!isOpen)}>Shirts {!isOpen ? <i className="fa-solid fa-angle-down"></i> :<i className="fa-solid fa-angle-up"></i>}</button>
-                        <ul className={isOpen?`block`: `hidden`}>
+                        <button className="" onClick={() => setIsOpen(!isOpen)}>Shirts {!isOpen ? <i className="fa-solid fa-angle-down"></i> : <i className="fa-solid fa-angle-up"></i>}</button>
+                        <ul className={isOpen ? `block` : `hidden`}>
                             <li className='ml-4'>  All shirts</li>
                             <li className='ml-4'>  Formal</li>
                             <li className='ml-4'>  casual</li>
@@ -73,7 +76,26 @@ const SideBar = () => {
 
             {/* Patterns starts */}
             <section className='mb-4'>
+                <div>
+                    <h1 className='text-2xl'>Patterns</h1>
+                    <ul className=''>
+                        <li className='flex items-center gap-2'>
+                            <div className="w-6 h-6 rounded-full bg-no-repeat" style={{ backgroundImage: `url(${solidColor})` }}></div>
+                            Solid Color
 
+                        </li>
+                        <li className='flex items-center gap-2'>
+                            <div className="w-6 h-6 rounded-full bg-no-repeat" style={{ backgroundImage: `url(${PrintedColor})` }}></div>
+                            Printed
+                            
+                        </li>
+                        <li className='flex items-center gap-2'>
+                            <div className="w-6 h-6 rounded-full bg-no-repeat" style={{ backgroundImage: `url(${StrippedColor})` }}></div>
+                            Striped
+                        </li>
+
+                    </ul>
+                </div>
             </section>
             {/* patterns ends */}
         </div>

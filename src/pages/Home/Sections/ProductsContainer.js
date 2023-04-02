@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import pkr from '../../../assests/pakistan-rupee-currency-symbol (1).png'
+
 
 const ProductsContainer = () => {
 
