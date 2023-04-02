@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className='w-full px-8 py-4 flex items-center justify-between shadow'>
             {/* left side */}
             <div className=''>
-                <h3 className='text-2xl font-bold'>Fashion Store </h3>
+                <Link to='/' className='text-2xl font-bold'>Fashion Store </Link>
             </div>
             {/* right side */}
             <div className=''>
