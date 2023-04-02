@@ -1,14 +1,16 @@
 import React from 'react'
 import Login from '../Login/Login';
+import useFirebase from '../../hooks/useFirebase';
 
 const PrivateRoute = ({children}) => {
 
-    const user = true;
+    const user = useFirebase();
+
     if(!user){
-      <Login></Login>
+      return <Login></Login>
     }
 
   return children;
 }
 
-export default PrivateRoute
+export default PrivateRoute;

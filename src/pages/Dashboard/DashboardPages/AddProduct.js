@@ -47,7 +47,7 @@ const AddProduct = () => {
                 <div className='my-6 flex gap-4'>
                     <input type="file" className='hidden' />
                     <label htmlFor="file" className='bg-blue-500 text-white flex itmes-center px-4 py-3 rounded'>
-                        <span class="material-symbols-outlined mr-2">
+                        <span className="material-symbols-outlined mr-2">
                             add_photo_alternate
                         </span>
                         Choose a Thumbnail
@@ -55,19 +55,19 @@ const AddProduct = () => {
                   
                     
                     <label htmlFor="file" className='bg-blue-500 text-white text-center px-4 py-3 rounded'>
-                        <span class="material-symbols-outlined mr-2">
+                        <span className="material-symbols-outlined mr-2">
                             add_a_photo
                         </span>
                     </label>
                    
                     <label htmlFor="file" className='bg-blue-500 text-white text-center px-4 py-3 rounded'>
-                        <span class="material-symbols-outlined mr-2">
+                        <span className="material-symbols-outlined mr-2">
                             add_a_photo
                         </span>
                     </label>
                    
                     <label htmlFor="file" className='bg-blue-500 text-white text-center px-4 py-3 rounded'>
-                        <span class="material-symbols-outlined mr-2">
+                        <span className="material-symbols-outlined mr-2">
                             add_a_photo
                         </span>
                     </label>

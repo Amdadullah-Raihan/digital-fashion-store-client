@@ -11,7 +11,7 @@ const Navbar = () => {
             </div>
             {/* right side */}
             <div className=''>
-                <Link to='/cart'>Cart <i class="fa-solid fa-cart-shopping text-xl"></i></Link>
+                <Link to='/cart'>Cart <i className="fa-solid fa-cart-shopping text-xl"></i></Link>
             </div>
         </div>
       
