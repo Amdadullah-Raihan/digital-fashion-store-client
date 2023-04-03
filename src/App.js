@@ -8,6 +8,7 @@ import Cart from './pages/Cart/Cart';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute'
+import CheckoutSuccess from './pages/Checkout/CheckoutSuccess';
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products/:id' element={<SingleProduct />} />
-        <Route path='/cart' element={<PrivateRoute><Cart /></PrivateRoute>} />
+        <Route path='/cart' element={<Cart />} />
         <Route path='/dashboard/*' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path='/login' element={<Login />} />
+        <Route path='/checkout-success' element={<CheckoutSuccess/>}></Route>
       </Routes>
     </div>
   );

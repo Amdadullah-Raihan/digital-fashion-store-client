@@ -1,20 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import useCart from '../../../hooks/useCart'
+import { addToDB } from '../../../utilities/addToDB'
+import useProducts from '../../../hooks/useProducts'
+
 
 
 const ProductsContainer = () => {
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useProducts();
+    const { cart, setCart } = useCart(products);
 
-    useEffect(() => {
-        fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setProducts(data.products)
-            }
-            );
-    }, [])
+    console.log('cart',cart);
+
+
+    // handle add to cart 
+    const handleAddToCart = (product) => {
+        let newCart = [];
+        const isExist = cart.find(pd=> pd.id === product.id);
+        if(isExist){
+            isExist.quantity = isExist.quantity + 1;
+            const restItems = cart.filter(pd => pd.id !== product.id);
+            newCart = [...restItems, product]
+        }
+        else{
+            product.quantity = 1;
+            newCart = [...cart, product]
+        }
+        setCart(newCart)
+        addToDB(product.id)
+
+        
+    }
+
+  
     return (
         <div className='lg:w-[75%]'>
 
@@ -38,8 +57,8 @@ const ProductsContainer = () => {
                                             <p>{product.price} <span className='font-bold text-sm'>PKR</span> </p>
                                         </div>
                                     </div>
-                               </Link>
-                                <button className='mx-auto w-full absolute bottom-0 pb-2 '>Add To Cart <i className="fa-solid fa-cart-plus"></i></button>
+                                </Link>
+                                <button className='mx-auto w-full absolute bottom-0 pb-2 ' onClick={() => handleAddToCart(product)}>Add To Cart <i className="fa-solid fa-cart-plus"></i></button>
                             </div>
                         </div>
 
