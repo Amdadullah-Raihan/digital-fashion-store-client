@@ -6,6 +6,7 @@ import useProducts from '../../hooks/useProducts'
 const Navbar = () => {
     const [products] = useProducts()
     const {cart} = useCart(products)
+    console.log(cart);
     return (
         
         <div className='w-full px-8 py-4 flex items-center justify-between shadow'>

@@ -5,7 +5,8 @@ import axios from 'axios';
 
 const Cart = () => {
   const [products] = useProducts();
-  const { cart } = useCart(products);
+  console.log(products);
+  const { cart } = useCart();
   const [cartItems, setCartItmes] = useState([])
   const [quantity, setQuantity] = useState(1)
 
@@ -47,8 +48,8 @@ const Cart = () => {
   }
   
   return (
-    <div className='w-full h-full flex items-center justify-center flex-col py-16'>
-      <h1 className='mb-4 text-3xl'>You ordered total {cart.length} individual items</h1>
+    <div className='w-full h-full flex items-center justify-center flex-col lg:py-16 p-4 text-center'>
+      <h1 className='mb-4 text-lg lg:text-3xl'>You ordered total {cart.length} individual items</h1>
       <div className='leading-8 px-10 shadow py-4'>
         <h1 className='text-2xl mb-4'>Order Summary </h1>
         <p>Selected Items: {totalQuantity}</p>

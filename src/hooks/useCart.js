@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from 'react'
-import { getStoredCart } from '../utilities/addToDB'
+import { addToDB, getStoredCart } from '../utilities/addToDB'
+import useProducts from './useProducts'
 
-const useCart = (products) => {
-
+const useCart = () => {
+  const [products] = useProducts()
   const [cart, setCart] = useState([])
+
+  const handleAddToCart = (product) => {
+    let newCart = [];
+    const isExist = cart.find(pd => pd.id === product._id);
+    if (isExist) {
+      isExist.quantity = isExist.quantity + 1;
+      const restItems = cart.filter(pd => pd.id !== product._id);
+      newCart = [...restItems, product]
+    }
+    else {
+      product.quantity = 1;
+      newCart = [...cart, product]
+    }
+    setCart(newCart)
+    addToDB(product._id)
+    alert('Product added to cart')
+
+
+  }
   useEffect(() => {
 
     if (products?.length) {
       const savedCart = getStoredCart();
-      console.log(savedCart);
+
 
       const storedCart = []
       for (const id in savedCart) {
-        console.log('id', id);
-        const addedProduct = products.find(product => product.id == id);
-        console.log(addedProduct);
+   
+        const addedProduct = products.find(product => product._id == id);
+
         if (addedProduct) {
           const quantity = savedCart[id];
           addedProduct.quantity = quantity;
@@ -27,7 +47,7 @@ const useCart = (products) => {
 
 
   return {
-    cart, setCart
+    cart, setCart, handleAddToCart
   }
 }
 
