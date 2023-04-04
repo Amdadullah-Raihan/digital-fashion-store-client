@@ -8,7 +8,7 @@ const Home = () => {
   const [color, setColor] = useState(null)
   const [patttern, setPattern] = useState(null)
   const [products, setProducts] = useState([]);
-  const [maxPrice, setMaxPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(1000)
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   console.log(catagory, color, patttern, maxPrice);
@@ -22,6 +22,15 @@ const Home = () => {
       );
   }, [])
 
+
+ useEffect(()=>{
+
+ const filteredData = products.filter(pd => pd.price >= 0 && pd.price <= maxPrice)
+
+        setFilteredProducts(filteredData)
+        console.log('filterData', filteredData);
+
+ },[maxPrice, products])
 
   useEffect(() => {
     fetch(`http://localhost:5000/products?category=${catagory}&&color=${color}&&pattern=${patttern}&&maxPrice=${maxPrice}`)
@@ -48,7 +57,7 @@ const Home = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
       <SideBar handleFilter={handleFilter} />
-      <ProductsContainer products={products} />
+      <ProductsContainer products={filteredProducts} />
     </div>
   )
 }

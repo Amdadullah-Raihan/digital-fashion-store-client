@@ -11,7 +11,7 @@ const SideBar = ({ handleFilter }) => {
     const [catagory, setCatagory] = useState(null )
     const [color, setColor] = useState(null)
     const [patttern, setPattern] = useState(null)
-    const [maxPrice, setMaxPrice] = useState(0)
+    const [maxPrice, setMaxPrice] = useState(1000)
     const [filteredProducts, setFilteredProducts] = useState([])
    const [products ] = useProducts('');
 
@@ -21,13 +21,7 @@ const SideBar = ({ handleFilter }) => {
         setColor('')
         setPattern('')
     }
-    const handleFilterProducts = () => {
-
-        if(catagory !== ''){
-            const newProducts = products.filter(pd => pd.catagory.inc);
-        
-        }
-    }
+  
 
     useEffect(()=>{
         handleFilter(catagory, color, patttern, maxPrice)
@@ -65,6 +59,9 @@ const SideBar = ({ handleFilter }) => {
                     <div>
                         <h2 className="text-2xl">Price Range</h2>
                         <input type="range" min="0" max="1000" value={maxPrice} className="range range-sm pr-4" onChange={e=>setMaxPrice(e.target.value)}/>
+                    </div>
+                    <div>
+                        <p>Max Price - {maxPrice}</p>
                     </div>
                 </section>
                 {/* Price Range ends */}
