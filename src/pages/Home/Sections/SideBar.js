@@ -29,15 +29,10 @@ const SideBar = ({ handleFilter }) => {
     },[catagory, color, patttern, maxPrice])
     
 
-
-    // const handleDrawer = () =>{
-    //     const drawer = document.getElementById('drawer')
-    //     drawer.classList.add('block')
-    // }
     return (
-        <div className='pl-8 py-8 '>
+        <div className='lg:pl-8 lg:py-8 p-2 bg-white'>
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
-            <div className=' mx-auto text-start leading-8  md:relative lg:block z-10 '>
+            <div className=' mx-auto text-start leading-8  md:relative lg:block '>
                 {/* search */}
                 <section className='mb-4'>
                     <div className="form-control">

@@ -6,11 +6,11 @@ import useProducts from '../../../hooks/useProducts'
 
 
 
-const ProductsContainer = ({products}) => {
+const ProductsContainer = ({ products }) => {
 
+    const [isOpen, setIsOpen] = useState(false)
 
-
-    const { cart, setCart, handleAddToCart} = useCart();
+    const { cart, setCart, handleAddToCart } = useCart();
 
 
     console.log('cart', cart);
@@ -22,12 +22,11 @@ const ProductsContainer = ({products}) => {
 
 
     return (
-        <div className='lg:p-8 p-4 w-full drawer-content'>
-          
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6'>
+        <div className='lg:p-8 w-full px-4'>
+        
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 '>
                 {
-                  !products.length ? <p className='text-red-500 text-4xl w-full text-center'>No Product Found!</p> : products?.map(product =>
+                    !products.length ? <p className='text-red-500 text-4xl w-full text-center'>No Product Found!</p> : products?.map(product =>
                         <div className='shadow min-h-[380px] max-h-[400px] relative'>
                             <Link to={`/products/${product._id}`}>
                                 <img className='w-full h-[60%] mb-4' src={product.thumbnail} alt="" />

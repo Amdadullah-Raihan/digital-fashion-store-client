@@ -13,7 +13,7 @@ const SingleProduct = () => {
 
     //fetching product by id
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://digital-fashion-store-server.vercel.app/products/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
