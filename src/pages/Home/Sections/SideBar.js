@@ -11,7 +11,7 @@ const SideBar = ({ handleFilter }) => {
     const [catagory, setCatagory] = useState(null )
     const [color, setColor] = useState(null)
     const [patttern, setPattern] = useState(null)
-    const [maxPrice, setMaxPrice] = useState(1000)
+    const [maxPrice, setMaxPrice] = useState(10000)
     const [filteredProducts, setFilteredProducts] = useState([])
    const [products ] = useProducts('');
 
@@ -53,7 +53,7 @@ const SideBar = ({ handleFilter }) => {
                 <section className='mb-4'>
                     <div>
                         <h2 className="text-2xl">Price Range</h2>
-                        <input type="range" min="0" max="1000" value={maxPrice} className="range range-sm pr-4" onChange={e=>setMaxPrice(e.target.value)}/>
+                        <input type="range" min="0" max="10000" value={maxPrice} className="range range-sm pr-4" onChange={e=>setMaxPrice(e.target.value)}/>
                     </div>
                     <div>
                         <p>Max Price - {maxPrice}</p>
@@ -67,22 +67,13 @@ const SideBar = ({ handleFilter }) => {
                         <h2 className="text-2xl">Catagories</h2>
                         <h4 className="text-md font-medium">All</h4>
 
+                   
                         <div className=''>
-                            <button className="" onClick={() => setIsOpen(!isOpen)}>Shirts {!isOpen ? <i className="fa-solid fa-angle-down"></i> : <i className="fa-solid fa-angle-up"></i>}</button>
-                            <ul id='shirts' className={isOpen ? `block` : `hidden`}>
-                                <input name='catagory' type='button' value='shirts' className='ml-4' onClick={(e)=>setCatagory(e.target.value)}/>  <br />
-                                <input name='catagory' type='button' value='formal' className='ml-4' onClick={(e)=>setCatagory(e.target.value)}/>   <br />
-                                <input name='catagory' type='button' value='casual' className='ml-4' onClick={(e)=>setCatagory(e.target.value)}/>  <br />
-                                <input name='catagory' type='button' value='plain' className='ml-4' onChange={(e)=>setCatagory(e.target.value)}/>   <br />
-                                <input name='catagory' type='button' value='check' className='ml-4' onChange={(e)=>setCatagory(e.target.value)}/>   <br />
-                            </ul>
-                        </div>
-                        <div className=''>
-                            <button onClick={() => setCatagory('buttons')}>  Buttons</button> <br />
-                            <button onClick={() => setCatagory('tie')}>  Tie</button> <br />
-                            <button onClick={() => setCatagory('belts')}>  Belts</button> <br />
-                            <button onClick={() => setCatagory('cuffinks and studds')}>  Cufflinks and studds</button> <br />
-                            <button onClick={() => setCatagory('vest')}>  Vests</button>
+                            <button onClick={() => setCatagory('neckties')}>  Neck ties</button> <br />
+                            <button onClick={() => setCatagory('bowties')}>  Bow Ties</button> <br />
+                            <button onClick={() => setCatagory('cufflinks')}>  Cufflinks</button> <br />
+                            <button onClick={() => setCatagory('pocketsquars')}>  Pocket Squars</button> <br />
+                            <button onClick={() => setCatagory('extras')}> Extras</button>
                         </div>
 
                     </div>

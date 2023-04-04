@@ -24,7 +24,7 @@ const ProductsContainer = ({ products }) => {
     return (
         <div className='lg:p-8 w-full px-4'>
         
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 '>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-4 '>
                 {
                     !products.length ? <p className='text-red-500 text-4xl w-full text-center'>No Product Found!</p> : products?.map(product =>
                         <div className='shadow min-h-[380px] max-h-[400px] relative'>
