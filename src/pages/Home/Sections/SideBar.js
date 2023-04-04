@@ -87,9 +87,7 @@ const SideBar = ({ handleFilter }) => {
 
                     </div>
                 </section>
-                {/* catagories ends */}{
-                    (catagory || color || patttern) && <button onClick={handleClearCartBtn} className=''>Clear Cart</button>
-                }
+              
 
                 {/* colors starts */}
                 <section className='mb-4'>

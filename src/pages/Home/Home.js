@@ -13,7 +13,7 @@ const Home = () => {
   console.log(catagory, color, patttern);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://digital-fashion-store-server.vercel.app/products")
       .then(res => res.json())
       .then(products => {
         setProducts(products)
@@ -23,7 +23,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?catergory=${catagory}&&color=${color}&&pattern=${patttern}&&maxPrice=${maxPrice}`)
+    fetch(`https://digital-fashion-store-server.vercel.app/products?catergory=${catagory}&&color=${color}&&pattern=${patttern}&&maxPrice=${maxPrice}`)
       .then(res => res.json())
       .then(products => {
         // console.log('by catagory', products);
