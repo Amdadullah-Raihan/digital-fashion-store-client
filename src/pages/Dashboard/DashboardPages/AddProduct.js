@@ -97,7 +97,7 @@ const AddProduct = () => {
 
         console.log(productDetails);
 
-            const url = 'https://digital-fashion-store-server.vercel.app/upload/product'
+            const url = 'http://localhost:5000/upload/product'
 
            fetch(url,{
                method: 'POST',

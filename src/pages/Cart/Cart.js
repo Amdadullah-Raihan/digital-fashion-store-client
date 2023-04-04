@@ -32,7 +32,7 @@ const Cart = () => {
   //handle checkout
   const handleCheckout = () =>{
      
-    axios.post('https://digital-fashion-store-server.vercel.app/create-checkout-session',{
+    axios.post('http://localhost:5000/create-checkout-session',{
       cart
 
     })

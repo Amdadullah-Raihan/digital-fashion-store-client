@@ -8,12 +8,13 @@ const Home = () => {
   const [color, setColor] = useState(null)
   const [patttern, setPattern] = useState(null)
   const [products, setProducts] = useState([]);
-  const [maxPrice, setMaxPrice] = useState(null)
+  const [maxPrice, setMaxPrice] = useState(0)
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  console.log(catagory, color, patttern);
+  console.log(catagory, color, patttern, maxPrice);
 
   useEffect(() => {
-    fetch("https://digital-fashion-store-server.vercel.app/products")
+    fetch("http://localhost:5000/products")
       .then(res => res.json())
       .then(products => {
         setProducts(products)
@@ -23,7 +24,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch(`https://digital-fashion-store-server.vercel.app/products?catergory=${catagory}&&color=${color}&&pattern=${patttern}&&maxPrice=${maxPrice}`)
+    fetch(`http://localhost:5000/products?category=${catagory}&&color=${color}&&pattern=${patttern}&&maxPrice=${maxPrice}`)
       .then(res => res.json())
       .then(products => {
         // console.log('by catagory', products);
@@ -38,6 +39,7 @@ const Home = () => {
     setColor(color)
     setPattern(pattern)
     setMaxPrice(maxPrice)
+    console.log('log', maxPrice);
 
   }
 

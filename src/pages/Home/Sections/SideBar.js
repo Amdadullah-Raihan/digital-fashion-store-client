@@ -11,14 +11,22 @@ const SideBar = ({ handleFilter }) => {
     const [catagory, setCatagory] = useState(null )
     const [color, setColor] = useState(null)
     const [patttern, setPattern] = useState(null)
-    const [maxPrice, setMaxPrice] = useState(300)
-    
-   
+    const [maxPrice, setMaxPrice] = useState(0)
+    const [filteredProducts, setFilteredProducts] = useState([])
+   const [products ] = useProducts('');
 
+    console.log(maxPrice);
     const handleClearCartBtn = () =>{
         setCatagory('')
         setColor('')
         setPattern('')
+    }
+    const handleFilterProducts = () => {
+
+        if(catagory !== ''){
+            const newProducts = products.filter(pd => pd.catagory.inc);
+        
+        }
     }
 
     useEffect(()=>{
