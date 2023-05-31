@@ -42,7 +42,7 @@ const SingleProduct = () => {
             </section>
             {/* right side */}
             <section className='lg:w-[50%] mt-8'>
-                <div className='text-center'>
+                <div className='text-center md:text-start'>
                     <h1 className='text-4xl mb-4'>{product.title}</h1>
                     <button className='text-xl border mb-10 p-2'>{product.price} <span className='text-md font-bold'>PKR</span> </button>
                     <p className='mb-4'>

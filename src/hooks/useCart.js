@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { addToDB, getStoredCart } from '../utilities/addToDB'
 import useProducts from './useProducts'
+import { useProductsContext } from '../contexts/ProductsProvider'
 
 const useCart = () => {
-  const [products] = useProducts()
+  const [products] = useProductsContext()
   const [cart, setCart] = useState([])
 
   const handleAddToCart = (product) => {
@@ -20,10 +21,11 @@ const useCart = () => {
     }
     setCart(newCart)
     addToDB(product._id)
-    alert('Product added to cart')
+    // alert('Product added to cart')
 
 
   }
+
   useEffect(() => {
 
     if (products?.length) {
@@ -32,8 +34,8 @@ const useCart = () => {
 
       const storedCart = []
       for (const id in savedCart) {
-   
-        const addedProduct = products.find(product => product._id == id);
+
+        const addedProduct = products.find(product => product._id === id);
 
         if (addedProduct) {
           const quantity = savedCart[id];

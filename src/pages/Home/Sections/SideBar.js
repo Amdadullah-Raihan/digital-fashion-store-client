@@ -2,32 +2,27 @@ import React, { useEffect, useState } from 'react'
 import solidColor from '../../../assests/icons/clothes.png'
 import PrintedColor from '../../../assests/icons/tie-dye.png'
 import StrippedColor from '../../../assests/icons/shirt.png'
-import useProducts from '../../../hooks/useProducts'
 
 const SideBar = ({ handleFilter }) => {
 
- 
-    const [isOpen, setIsOpen] = useState(false)
-    const [catagory, setCatagory] = useState(null )
+    const [catagory, setCatagory] = useState(null)
     const [color, setColor] = useState(null)
     const [patttern, setPattern] = useState(null)
     const [maxPrice, setMaxPrice] = useState(10000)
-    const [filteredProducts, setFilteredProducts] = useState([])
-   const [products ] = useProducts('');
 
-    console.log(maxPrice);
-    const handleClearCartBtn = () =>{
+    //handle Clear  Cart 
+    const handleClearCartBtn = () => {
         setCatagory('')
         setColor('')
         setPattern('')
     }
-  
 
-    useEffect(()=>{
+
+    useEffect(() => {
         handleFilter(catagory, color, patttern, maxPrice)
 
-    },[catagory, color, patttern, maxPrice])
-    
+    }, [catagory, color, patttern, maxPrice, handleFilter])
+
 
     return (
         <div className='lg:pl-8 lg:py-8 p-2 bg-white'>
@@ -53,7 +48,7 @@ const SideBar = ({ handleFilter }) => {
                 <section className='mb-4'>
                     <div>
                         <h2 className="text-2xl">Price Range</h2>
-                        <input type="range" min="0" max="10000" value={maxPrice} className="range range-sm pr-4" onChange={e=>setMaxPrice(e.target.value)}/>
+                        <input type="range" min="0" max="10000" value={maxPrice} className="range range-sm pr-4" onChange={e => setMaxPrice(e.target.value)} />
                     </div>
                     <div>
                         <p>Max Price - {maxPrice}</p>
@@ -67,7 +62,7 @@ const SideBar = ({ handleFilter }) => {
                         <h2 className="text-2xl">Catagories</h2>
                         <h4 className="text-md font-medium">All</h4>
 
-                   
+
                         <div className=''>
                             <button onClick={() => setCatagory('neckties')}>  Neck ties</button> <br />
                             <button onClick={() => setCatagory('bowties')}>  Bow Ties</button> <br />
@@ -78,7 +73,7 @@ const SideBar = ({ handleFilter }) => {
 
                     </div>
                 </section>
-              
+
 
                 {/* colors starts */}
                 <section className='mb-4'>
@@ -124,7 +119,7 @@ const SideBar = ({ handleFilter }) => {
                 </section>
                 {/* patterns ends */}
             </div>
-      </div>
+        </div>
     )
 }
 

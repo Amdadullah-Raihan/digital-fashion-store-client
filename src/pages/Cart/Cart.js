@@ -2,51 +2,50 @@ import React, { useCallback, useEffect, useState } from 'react'
 import useCart from '../../hooks/useCart'
 import useProducts from '../../hooks/useProducts';
 import axios from 'axios';
+import { useCartContext } from '../../contexts/CartProvider';
 
 const Cart = () => {
-  const [products] = useProducts();
-  console.log(products);
-  const { cart } = useCart();
-  const [cartItems, setCartItmes] = useState([])
-  const [quantity, setQuantity] = useState(1)
 
-  console.log('cart',cart);
- //calculate price and other data
+  const { cart } = useCartContext();
+
+
+  // console.log('cart', cart);
+  //calculate price and other data
   let total = 0;
   let shipingCost = 0;
   let tax = 0;
   let grandTotal = 0;
-  let totalQuantity =0;
+  let totalQuantity = 0;
 
-  for (const product of cart){
-    if(!product.quantity){
+  for (const product of cart) {
+    if (!product.quantity) {
       product.quantity = 1;
     }
     totalQuantity = totalQuantity + product.quantity;
     total = total + product.price * product.quantity;
     shipingCost = shipingCost + product.shipping;
     tax = parseFloat((total * 0.1).toFixed(2));
-    grandTotal = total  + tax;
+    grandTotal = total + tax;
   }
 
   //handle checkout
-  const handleCheckout = () =>{
-     
-    axios.post('https://digital-fashion-store-server.vercel.app/create-checkout-session',{
+  const handleCheckout = () => {
+
+    axios.post('https://digital-fashion-store-server.vercel.app/create-checkout-session', {
       cart
 
     })
-    .then(res=>{
-      console.log(res);
-      if(res.data.url){
-        window.location.href = res.data.url
-      }
-    }).catch(err=>{
-      console.log(err.message);
-    })
+      .then(res => {
+        console.log(res);
+        if (res.data.url) {
+          window.location.href = res.data.url
+        }
+      }).catch(err => {
+        console.log(err.message);
+      })
 
   }
-  
+
   return (
     <div className='w-full h-full flex items-center justify-center flex-col lg:py-16 p-4 text-center'>
       <h1 className='mb-4 text-lg lg:text-3xl'>You ordered total {cart.length} individual items</h1>
